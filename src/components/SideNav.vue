@@ -1,12 +1,20 @@
 <template>
-  <aside class="side-nav">
-    <nav class="side-nav-content">
-      <router-link to="/how-it-works" class="side-nav-item">
-        <HelpCircle class="nav-icon" :size="22" />
+  <aside class="side-nav" aria-label="Side navigation">
+    <nav class="side-nav-content" role="navigation" aria-label="Page navigation">
+      <router-link 
+        to="/how-it-works" 
+        class="side-nav-item"
+        :aria-current="route.path === '/how-it-works' ? 'page' : undefined"
+      >
+        <HelpCircle class="nav-icon" :size="22" aria-hidden="true" />
         <span class="nav-text">How it works</span>
       </router-link>
-      <router-link to="/repos" class="side-nav-item">
-        <FolderGit2 class="nav-icon" :size="22" />
+      <router-link 
+        to="/repos" 
+        class="side-nav-item"
+        :aria-current="route.path === '/repos' ? 'page' : undefined"
+      >
+        <FolderGit2 class="nav-icon" :size="22" aria-hidden="true" />
         <span class="nav-text">Repos</span>
       </router-link>
     </nav>
@@ -15,6 +23,9 @@
 
 <script setup>
 import { HelpCircle, FolderGit2 } from 'lucide-vue-next'
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
 </script>
 
 <style scoped>
@@ -97,6 +108,12 @@ import { HelpCircle, FolderGit2 } from 'lucide-vue-next'
 .side-nav-item:hover .nav-text,
 .side-nav-item.router-link-active .nav-text {
   color: var(--light-blue);
+}
+
+.side-nav-item:focus-visible {
+  outline: 3px solid var(--light-blue);
+  outline-offset: -3px;
+  border-radius: 12px;
 }
 
 @media (max-width: 768px) {

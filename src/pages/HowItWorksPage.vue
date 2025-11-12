@@ -10,7 +10,7 @@
             </p>
           </div>
           <div class="hero-svg">
-            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Three-step process illustration: Connect, Configure, Deploy" role="img">
               <defs>
                 <linearGradient id="howItWorksGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style="stop-color:#00B4FF;stop-opacity:0.3" />
@@ -52,16 +52,19 @@
     
     <div class="content-section">
       <div class="content-card">
+        <Rocket class="card-icon" :size="32" aria-hidden="true" />
         <h2>Getting Started</h2>
         <p>Connect your repositories and start managing patches with ease. Our platform provides a seamless integration process that takes just minutes to set up.</p>
       </div>
       
       <div class="content-card">
+        <GitBranch class="card-icon" :size="32" aria-hidden="true" />
         <h2>Automated Workflows</h2>
         <p>Configure automated patch deployment rules that work for your team. Set up triggers, approvals, and rollback strategies all in one place.</p>
       </div>
       
       <div class="content-card">
+        <BarChart3 class="card-icon" :size="32" aria-hidden="true" />
         <h2>Monitor & Track</h2>
         <p>Keep track of all patch deployments with real-time monitoring and comprehensive audit logs. Stay informed about the status of every change.</p>
       </div>
@@ -70,6 +73,7 @@
 </template>
 
 <script setup>
+import { Rocket, GitBranch, BarChart3 } from 'lucide-vue-next'
 </script>
 
 <style scoped>
@@ -174,11 +178,17 @@
   box-shadow: 0 4px 20px var(--shadow);
 }
 
+.card-icon {
+  color: var(--light-blue);
+  margin-bottom: 1rem;
+}
+
 .content-card h2 {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 .content-card p {

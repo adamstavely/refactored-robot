@@ -10,7 +10,7 @@
             </p>
           </div>
           <div class="hero-svg">
-            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Repository folders and git branch management illustration" role="img">
               <defs>
                 <linearGradient id="reposGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                   <stop offset="0%" style="stop-color:#00B4FF;stop-opacity:0.3" />
@@ -54,16 +54,19 @@
     
     <div class="content-section">
       <div class="content-card">
+        <FolderGit2 class="card-icon" :size="32" aria-hidden="true" />
         <h2>Connected Repositories</h2>
         <p>View and manage all your connected repositories. Monitor patch status, deployment history, and repository health metrics.</p>
       </div>
       
       <div class="content-card">
+        <PlusCircle class="card-icon" :size="32" aria-hidden="true" />
         <h2>Add New Repository</h2>
         <p>Connect new repositories to start managing patches. Support for GitHub, GitLab, Bitbucket, and more.</p>
       </div>
       
       <div class="content-card">
+        <Settings class="card-icon" :size="32" aria-hidden="true" />
         <h2>Repository Settings</h2>
         <p>Configure repository-specific settings, branch protection rules, and automated patch deployment policies.</p>
       </div>
@@ -72,6 +75,7 @@
 </template>
 
 <script setup>
+import { FolderGit2, PlusCircle, Settings } from 'lucide-vue-next'
 </script>
 
 <style scoped>
@@ -176,11 +180,17 @@
   box-shadow: 0 4px 20px var(--shadow);
 }
 
+.card-icon {
+  color: var(--light-blue);
+  margin-bottom: 1rem;
+}
+
 .content-card h2 {
   font-size: 1.5rem;
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 1rem;
+  margin-top: 0;
 }
 
 .content-card p {

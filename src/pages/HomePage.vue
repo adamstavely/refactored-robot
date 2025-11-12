@@ -10,12 +10,12 @@
             </p>
             <div class="hero-actions-row">
               <div class="action-buttons">
-                <button class="action-btn primary">
-                  Request a Repo
-                </button>
-                <button class="action-btn secondary">
-                  OnDemand Request
-                </button>
+              <button class="action-btn primary" aria-label="Request a repository">
+                Request a Repo
+              </button>
+              <button class="action-btn secondary" aria-label="On-demand request">
+                OnDemand Request
+              </button>
               </div>
             </div>
           </div>
@@ -36,7 +36,7 @@
             </div>
           </div>
           <div class="hero-svg">
-            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-label="Repository patch management workflow illustration" role="img">
               <!-- Background gradient -->
               <defs>
                 <linearGradient id="svgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -83,22 +83,22 @@
       <h2 class="section-title">Features</h2>
       <div class="features-grid">
         <div class="feature-card">
-          <Zap class="feature-icon" :size="32" />
+          <Zap class="feature-icon" :size="32" aria-hidden="true" />
           <h3 class="feature-title">Fast Integration</h3>
           <p class="feature-description">Connect your repositories in seconds with our streamlined integration process.</p>
         </div>
         <div class="feature-card">
-          <Shield class="feature-icon" :size="32" />
+          <Shield class="feature-icon" :size="32" aria-hidden="true" />
           <h3 class="feature-title">Secure & Reliable</h3>
           <p class="feature-description">Enterprise-grade security with 99.9% uptime guarantee for your critical workflows.</p>
         </div>
         <div class="feature-card">
-          <BarChart3 class="feature-icon" :size="32" />
+          <BarChart3 class="feature-icon" :size="32" aria-hidden="true" />
           <h3 class="feature-title">Real-time Analytics</h3>
           <p class="feature-description">Track patch status, deployment metrics, and repository health in real-time.</p>
         </div>
         <div class="feature-card">
-          <RefreshCw class="feature-icon" :size="32" />
+          <RefreshCw class="feature-icon" :size="32" aria-hidden="true" />
           <h3 class="feature-title">Automated Workflows</h3>
           <p class="feature-description">Set up automated patch deployment with customizable rules and triggers.</p>
         </div>
@@ -109,7 +109,7 @@
       <div class="cta-card">
         <h2 class="cta-title">Ready to get started?</h2>
         <p class="cta-description">Join thousands of developers using Patches.com to streamline their workflow.</p>
-        <button class="cta-button">Get Started Free</button>
+        <button class="cta-button" aria-label="Get started with Patches.com for free">Get Started Free</button>
       </div>
     </div>
   </div>
@@ -308,6 +308,11 @@ import { Zap, Shield, BarChart3, RefreshCw } from 'lucide-vue-next'
   transform: translateY(0);
 }
 
+.action-btn:focus-visible {
+  outline: 3px solid var(--light-blue);
+  outline-offset: 2px;
+}
+
 .features-section {
   margin: 4rem 0;
 }
@@ -398,6 +403,11 @@ import { Zap, Shield, BarChart3, RefreshCw } from 'lucide-vue-next'
 .cta-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cta-button:focus-visible {
+  outline: 3px solid var(--light-blue);
+  outline-offset: 2px;
 }
 
 @media (max-width: 1024px) {

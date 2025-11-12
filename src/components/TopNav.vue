@@ -1,35 +1,50 @@
 <template>
-  <nav class="top-nav">
+  <nav class="top-nav" role="navigation" aria-label="Main navigation">
     <div class="nav-container">
       <div class="nav-left">
         <router-link to="/" class="nav-brand">
-          <Package class="brand-icon" :size="24" />
+          <Package class="brand-icon" :size="24" aria-hidden="true" />
           <h1 class="brand-text">Patches.com</h1>
         </router-link>
       </div>
       <div class="nav-center">
         <div class="search-container">
-          <Search class="search-icon" :size="18" />
+          <label for="search-input" class="sr-only">Search</label>
+          <Search class="search-icon" :size="18" aria-hidden="true" />
           <input 
-            type="text" 
+            id="search-input"
+            type="search" 
             placeholder="Search..." 
             class="search-input"
             v-model="searchQuery"
+            aria-label="Search"
           />
         </div>
       </div>
       <div class="nav-right">
-        <button class="nav-action-btn notification-btn" title="Notifications">
-          <Bell :size="20" />
-          <span class="notification-badge" v-if="hasNotifications">3</span>
+        <button 
+          class="nav-action-btn notification-btn" 
+          aria-label="Notifications"
+          aria-describedby="notification-count"
+        >
+          <Bell :size="20" aria-hidden="true" />
+          <span id="notification-count" class="notification-badge" v-if="hasNotifications" aria-label="3 unread notifications">3</span>
         </button>
-        <button class="user-avatar-btn" title="User Menu">
-          <div class="avatar">
+        <button 
+          class="user-avatar-btn" 
+          aria-label="User menu"
+          aria-expanded="false"
+        >
+          <div class="avatar" aria-hidden="true">
             <User :size="20" />
           </div>
         </button>
-        <button class="nav-action-btn app-picker-btn" title="App Picker">
-          <span class="material-symbols-outlined">apps</span>
+        <button 
+          class="nav-action-btn app-picker-btn" 
+          aria-label="App picker"
+          aria-expanded="false"
+        >
+          <span class="material-symbols-outlined" aria-hidden="true">apps</span>
         </button>
       </div>
     </div>
@@ -84,6 +99,12 @@ const hasNotifications = ref(true)
 
 .nav-brand:hover {
   opacity: 0.9;
+}
+
+.nav-brand:focus-visible {
+  outline: 3px solid var(--text-light);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
 .brand-icon {
@@ -145,6 +166,8 @@ const hasNotifications = ref(true)
 .search-input:focus {
   background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+  outline: 2px solid var(--text-light);
+  outline-offset: 2px;
 }
 
 .nav-right {
@@ -172,6 +195,12 @@ const hasNotifications = ref(true)
 .nav-action-btn:hover {
   background: rgba(255, 255, 255, 0.2);
   transform: translateY(-1px);
+}
+
+.nav-action-btn:focus-visible,
+.user-avatar-btn:focus-visible {
+  outline: 3px solid var(--text-light);
+  outline-offset: 2px;
 }
 
 .app-picker-btn .material-symbols-outlined {
@@ -226,6 +255,20 @@ const hasNotifications = ref(true)
   justify-content: center;
   width: 100%;
   height: 100%;
+}
+
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  clip-path: inset(50%) !important;
+  white-space: nowrap !important;
+  border-width: 0 !important;
+  left: -10000px !important;
 }
 
 @media (max-width: 768px) {
